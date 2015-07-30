@@ -1,0 +1,31 @@
+<!--Selected Date Display-->
+<div flex="33" layout="column" class="material-time">
+
+  <div    class="selected-time-display md-whiteframe-z1"
+          flex="33"
+          layout="column"
+          layout-align="center center">
+
+    <div    layout-fill
+            layout="row"
+            layout-align="center end">
+      <span class="time" ng-class="{'active':options.showHours}" ng-click="options.showHours = true">{{options.selectedHour}}:</span>
+      <span class="time" ng-class="{'active':!options.showHours}" ng-click="options.showHours = false">{{options.selectedMinute|numberFixedLen:2}}</span>
+      <div layout="column">
+
+        <span class="am" ng-class="{'active':isAM}" ng-click="setAM(true)">AM</span>
+        <span class="pm" ng-class="{'active':!isAM}" ng-click="setAM(false)">PM</span>
+      </div>
+    </div>
+
+  </div>
+  <div    class="circle-time-selection"
+          layout-fill
+          flex
+          layout="column"
+          layout-align="center center">
+    <clock-face options="options">
+    </clock-face>
+  </div>
+
+</div>

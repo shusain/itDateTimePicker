@@ -1,0 +1,63 @@
+<!--Selected Date Display-->
+<div flex="33" layout="column">
+
+  <div    class="selected-date-display md-whiteframe-z1"
+          flex="33"
+          layout="column"
+          layout-align="center center">
+
+    <div    class="day"
+            layout-fill
+            layout="row"
+            layout-align="center center">
+      <span>{{selectedDate | date:'EEEE'}}</span>
+    </div>
+    <div    class="month"
+            layout-fill
+            layout="row"
+            layout-align="center center">
+      <arrow-left ng-click="decreaseMonth()">
+      </arrow-left>
+      <span>{{selectedDate | date:'MMM'}}</span>
+      <arrow-right ng-click="increaseMonth()">
+      </arrow-right>
+    </div>
+    <div    class="date"
+            layout-fill
+            layout="row"
+            layout-align="center center">
+      {{selectedDate | date:'d'}}
+    </div>
+    <div    class="year"
+            layout-fill
+            layout="row"
+            layout-align="center center">
+      <arrow-left ng-click="decreaseYear()">
+      </arrow-left>
+      <span>{{selectedDate | date:'yyyy'}}</span>
+      <arrow-right ng-click="increaseYear()">
+      </arrow-right>
+    </div>
+
+  </div>
+  <div class="date-picker-area"
+       flex
+          layout="column"
+       layout-fill
+          layout-align="center center">
+    <div class="month-year-header" flex="100">
+      {{selectedDate | date:'MMMM yyyy'}}
+    </div>
+    <div class="days-of-week" flex="100" layout="row" layout-fill>
+      <span flex style="text-align: center">S</span>
+      <span flex style="text-align: center">M</span>
+      <span flex style="text-align: center">T</span>
+      <span flex style="text-align: center">W</span>
+      <span flex style="text-align: center">T</span>
+      <span flex style="text-align: center">F</span>
+      <span flex style="text-align: center">S</span>
+    </div>
+    <dates-container flex layout-fill selected-date="selectedDate">
+    </dates-container>
+  </div>
+</div>

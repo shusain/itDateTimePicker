@@ -45,15 +45,39 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      less:{
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less:development']
+      },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= yeoman.app %>/**/*.{html,js}',
           '.tmp/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      }
+    },
+    less: {
+      development: {
+        options: {
+          paths: ["styles"],
+          sourceMap: true
+        },
+        files: {
+          "<%= yeoman.app %>/styles/component.css": "<%= yeoman.app %>/styles/component.less"
+        }
+      },
+      production: {
+        options: {
+          paths: ["styles"],
+          cleancss: true
+        },
+        files: {
+          "<%= yeoman.app %>/styles/component.css": "<%= yeoman.app %>/styles/component.less"
+        }
       }
     },
     html2js: {

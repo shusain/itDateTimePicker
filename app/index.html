@@ -4,7 +4,7 @@
 	<!-- HEAD -->
 	<head>
 
-		<title>Component Test Bed</title>
+		<title>Flexbox/Material Design Based Date Picker</title>
 
 		<!-- Locks zooming on mobile devices, sets an initial zoom of 1 and doesn't allow for change  -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>  
@@ -15,21 +15,35 @@
 		<link
       rel="stylesheet"
       type="text/css"
-      href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+      href="bower_components/angular-material/angular-material.css"/>
 
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="styles/master.css">
 		<!-- build:css styles/optimized.css -->
-		<link
-      rel="stylesheet"
-      type="text/css"
-      href="styles/master.css">
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="styles/component.css">
 		<!-- endbuild -->
 
 	</head>
 
 
 	<!-- BODY -->
-	<body>
-		<h1>The perfect place to build components</h1>
+	<body ng-controller="TestCtrl as ctrl">
+		<h1>Flexbox/Material Design Based Date Picker</h1>
+    <pre>{{selectedDate|date:'short'}}</pre>
+    <div layout="row">
+      <it-date-time-picker
+              ng-model="ctrl.selectedDate">
+      </it-date-time-picker>
+      <it-time-picker
+              ng-model="ctrl.selectedDate">
+      </it-time-picker>
+    </div>
+
 		<!-- AngularJS and components thereof -->
 		<script
 			type="text/javascript"
@@ -37,30 +51,7 @@
 		</script>
 		<script
 			type="text/javascript"
-			src="bower_components/angular-resource/angular-resource.js">
-		</script>
-		<script
-			type="text/javascript"
-			src="bower_components/angular-route/angular-route.js">
-		</script>
-		<script
-			type="text/javascript"
-			src="bower_components/angular-animate/angular-animate.js">
-		</script>
-		<script
-			type="text/javascript"
-			src="bower_components/angular-sanitize/angular-sanitize.js">
-		</script>
-
-		<script
-			type="text/javascript"
-			src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js">
-		</script>
-
-		<!-- ReCaptcha (requires php folder as well) -->
-		<script
-			type="text/javascript"
-			src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js">
+			src="bower_components/angular-material/angular-material.js">
 		</script>
 		
 		<script

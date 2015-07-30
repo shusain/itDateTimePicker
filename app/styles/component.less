@@ -1,0 +1,127 @@
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.selected-date-display{
+  .noselect;
+  width: 280px;
+  flex:100;
+   color:white;
+
+  .day{
+    background-color: #b71c1c;
+    font-size: .75em;
+    padding-top: .4em;
+    padding-bottom: .4em;
+  }
+  .month, .date, .year{
+    background-color: #E53935;
+  }
+
+  .year, .month{
+    font-size:1.5em;
+  }
+  .date{
+    font-size: 4em;
+  }
+  arrow-left,arrow-right{
+    fill:#000000;
+    fill-opacity:0.1;
+    stroke:#000000;
+    stroke-width:2;
+    stroke-opacity:0.15;
+    cursor: pointer;
+    margin:.5em;
+    &:hover{
+      fill-opacity: .5;
+    }
+  }
+}
+
+.date-picker-area{
+  .noselect;
+  width: 280px;
+  background-color: #FFEBEE;
+  padding-top:.75em;
+  .days-of-week{
+    margin-top:.75em;
+    margin-bottom:.75em;
+  }
+  .month-year-header{
+    font-weight: bold;
+  }
+
+  button.date-button{
+    width:40px;
+    height:40px;
+    background-color: transparent;
+    border-radius: 20px;
+    border-width: 0px;
+    &:focus{
+      outline:0;
+    }
+    &:hover{
+      background-color: #EF9A9A;
+    }
+    &.selected-date{
+      background-color: #E53935;
+    }
+  }
+}
+
+//Time
+.material-time{
+  .noselect;
+  width: 280px;
+  .selected-time-display{
+    background-color: #b71c1c;
+    .time{
+      cursor: pointer;
+      color:rgba(255,255,255,.5);
+      font-size: 4em;
+      &.active{
+        color:rgba(255,255,255,1);
+      }
+    }
+    .am,.pm{
+      cursor: pointer;
+      font-size: 1em;
+      margin-left:1em;
+      color:rgba(255,255,255,.5);
+      &.active{
+        color:rgba(255,255,255,1);
+      }
+    }
+    .pm{
+      margin-bottom:1em;
+    }
+  }
+  clock-face{
+    cursor:pointer;
+    margin-top:1em;
+  }
+  .clock-background{
+    fill: #e1e1e1;
+  }
+  .numbers-container,.numbers-container2{
+    pointer-events: none;
+    transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) .4s;
+    transform-origin: 50% 50%;
+    text{
+      fill:grey;
+      transition-delay: .5s;
+      transition: all linear .5s;
+    }
+  }
+  .circle-layer{
+    pointer-events: none;
+    stroke-width: 1;
+    fill:#E53935;
+    stroke: #E53935;
+  }
+}
