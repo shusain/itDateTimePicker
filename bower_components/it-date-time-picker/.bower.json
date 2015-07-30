@@ -1,0 +1,42 @@
+{
+  "name": "it-date-time-picker",
+  "ignore": [
+    "app",
+    "sublime",
+    "test",
+    ".bower.json",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintrc",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "karma-e2e.conf.js",
+    "Makefile",
+    "package.json",
+    "test-results.xml"
+  ],
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-material": "master"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.3",
+    "angular-scenario": "~1.4.3",
+    "angular-animate": "~1.4.3"
+  },
+  "resolutions": {
+    "angular": "~1.4.3",
+    "angular-animate": "~1.4.3"
+  },
+  "homepage": "https://github.com/shusain/itDateTimePicker",
+  "_release": "3c68c37760",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3c68c377609cddf3d59a9dddaf0154ce129d0184"
+  },
+  "_source": "https://github.com/shusain/itDateTimePicker.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/shusain/itDateTimePicker.git",
+  "_direct": true
+}
