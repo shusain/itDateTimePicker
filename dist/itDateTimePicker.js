@@ -5,8 +5,8 @@
    *
    * Description
    */
-  angular.module('component-templates',[]);
-  angular.module('componentModule', ['component-templates'])
+  angular.module('itDateTimePicker-templates',[]);
+  angular.module('itDateTimePicker', ['itDateTimePicker-templates'])
     .filter('numberFixedLen', function () {
       return function (n, len) {
         var num = parseInt(n, 10);
@@ -554,7 +554,7 @@
   ;
 
 })()
-;angular.module('component-templates', ['component/templates/arrow_left.svg', 'component/templates/arrow_right.svg', 'component/templates/calendar.tpl.html', 'component/templates/clock_face.svg', 'component/templates/testTemplate.tpl.html', 'component/templates/time.tpl.html']);
+;angular.module('itDateTimePicker-templates', ['component/templates/arrow_left.svg', 'component/templates/arrow_right.svg', 'component/templates/calendar.tpl.html', 'component/templates/clock_face.svg', 'component/templates/testTemplate.tpl.html', 'component/templates/time.tpl.html']);
 
 angular.module("component/templates/arrow_left.svg", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("component/templates/arrow_left.svg",

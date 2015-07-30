@@ -5,8 +5,8 @@
    *
    * Description
    */
-  angular.module('component-templates',[]);
-  angular.module('componentModule', ['component-templates'])
+  angular.module('itDateTimePicker-templates',[]);
+  angular.module('itDateTimePicker', ['itDateTimePicker-templates'])
     .filter('numberFixedLen', function () {
       return function (n, len) {
         var num = parseInt(n, 10);

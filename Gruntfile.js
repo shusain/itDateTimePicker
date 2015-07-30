@@ -84,7 +84,7 @@ module.exports = function (grunt) {
       options: {
         // custom options, see below
         base:"app",
-        module:"component-templates"
+        module:"itDateTimePicker-templates"
       },
       main: {
         src: ['app/component/templates/**/*.{tpl.html,svg}'],
