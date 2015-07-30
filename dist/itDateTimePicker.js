@@ -107,7 +107,7 @@
     })
 
     //Used for drawing the circular time selection element
-    .directive('clockFace', function($filter){
+    .directive('clockFace', ['$filter', function($filter){
       var cx = 100;
       var cy = 100;
       var backgroundRadius = 100;
@@ -418,7 +418,7 @@
           })
         }
       }
-    })
+    }])
 
 
     .directive('itDateTimePicker', function(){
@@ -463,7 +463,7 @@
       }
     })
 
-    .directive('datesContainer', function($compile){
+    .directive('datesContainer', ['$compile', function($compile){
 
       function getDaysInMonth(m, y) {
         //console.log('days in ',m,y)
@@ -549,8 +549,175 @@
           }
         }
       }
-    })
+    }])
 
   ;
 
 })()
+;angular.module('component-templates', ['component/templates/arrow_left.svg', 'component/templates/arrow_right.svg', 'component/templates/calendar.tpl.html', 'component/templates/clock_face.svg', 'component/templates/testTemplate.tpl.html', 'component/templates/time.tpl.html']);
+
+angular.module("component/templates/arrow_left.svg", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/arrow_left.svg",
+    "<?xml version=\"1.0\" standalone=\"no\"?>\n" +
+    "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n" +
+    "  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n" +
+    "<svg\n" +
+    "   width=\"40\"\n" +
+    "   height=\"40\"\n" +
+    "   viewBox=\"0 0 100 100\"\n" +
+    "   version=\"1.1\"\n" +
+    "   xmlns=\"http://www.w3.org/2000/svg\">\n" +
+    "  <g>\n" +
+    "    <path\n" +
+    "       class=\"arrow-left\"\n" +
+    "       d=\"m 100,0 -75,50 75,50 z\"/>\n" +
+    "  </g>\n" +
+    "</svg>\n" +
+    "");
+}]);
+
+angular.module("component/templates/arrow_right.svg", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/arrow_right.svg",
+    "<?xml version=\"1.0\" standalone=\"no\"?>\n" +
+    "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n" +
+    "  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n" +
+    "<svg\n" +
+    "   width=\"40\"\n" +
+    "   height=\"40\"\n" +
+    "   viewBox=\"0 0 100 100\"\n" +
+    "   version=\"1.1\"\n" +
+    "   xmlns=\"http://www.w3.org/2000/svg\">\n" +
+    "  <g>\n" +
+    "    <path\n" +
+    "       class=\"arrow-right\"\n" +
+    "       d=\"m 0,0 75,50 -75,50 z\"/>\n" +
+    "  </g>\n" +
+    "</svg>\n" +
+    "");
+}]);
+
+angular.module("component/templates/calendar.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/calendar.tpl.html",
+    "<!--Selected Date Display-->\n" +
+    "<div flex=\"33\" layout=\"column\">\n" +
+    "\n" +
+    "  <div    class=\"selected-date-display md-whiteframe-z1\"\n" +
+    "          flex=\"33\"\n" +
+    "          layout=\"column\"\n" +
+    "          layout-align=\"center center\">\n" +
+    "\n" +
+    "    <div    class=\"day\"\n" +
+    "            layout-fill\n" +
+    "            layout=\"row\"\n" +
+    "            layout-align=\"center center\">\n" +
+    "      <span>{{selectedDate | date:'EEEE'}}</span>\n" +
+    "    </div>\n" +
+    "    <div    class=\"month\"\n" +
+    "            layout-fill\n" +
+    "            layout=\"row\"\n" +
+    "            layout-align=\"center center\">\n" +
+    "      <arrow-left ng-click=\"decreaseMonth()\">\n" +
+    "      </arrow-left>\n" +
+    "      <span>{{selectedDate | date:'MMM'}}</span>\n" +
+    "      <arrow-right ng-click=\"increaseMonth()\">\n" +
+    "      </arrow-right>\n" +
+    "    </div>\n" +
+    "    <div    class=\"date\"\n" +
+    "            layout-fill\n" +
+    "            layout=\"row\"\n" +
+    "            layout-align=\"center center\">\n" +
+    "      {{selectedDate | date:'d'}}\n" +
+    "    </div>\n" +
+    "    <div    class=\"year\"\n" +
+    "            layout-fill\n" +
+    "            layout=\"row\"\n" +
+    "            layout-align=\"center center\">\n" +
+    "      <arrow-left ng-click=\"decreaseYear()\">\n" +
+    "      </arrow-left>\n" +
+    "      <span>{{selectedDate | date:'yyyy'}}</span>\n" +
+    "      <arrow-right ng-click=\"increaseYear()\">\n" +
+    "      </arrow-right>\n" +
+    "    </div>\n" +
+    "\n" +
+    "  </div>\n" +
+    "  <div class=\"date-picker-area\"\n" +
+    "       flex\n" +
+    "          layout=\"column\"\n" +
+    "       layout-fill\n" +
+    "          layout-align=\"center center\">\n" +
+    "    <div class=\"month-year-header\" flex=\"100\">\n" +
+    "      {{selectedDate | date:'MMMM yyyy'}}\n" +
+    "    </div>\n" +
+    "    <div class=\"days-of-week\" flex=\"100\" layout=\"row\" layout-fill>\n" +
+    "      <span flex style=\"text-align: center\">S</span>\n" +
+    "      <span flex style=\"text-align: center\">M</span>\n" +
+    "      <span flex style=\"text-align: center\">T</span>\n" +
+    "      <span flex style=\"text-align: center\">W</span>\n" +
+    "      <span flex style=\"text-align: center\">T</span>\n" +
+    "      <span flex style=\"text-align: center\">F</span>\n" +
+    "      <span flex style=\"text-align: center\">S</span>\n" +
+    "    </div>\n" +
+    "    <dates-container flex layout-fill selected-date=\"selectedDate\">\n" +
+    "    </dates-container>\n" +
+    "  </div>\n" +
+    "</div>");
+}]);
+
+angular.module("component/templates/clock_face.svg", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/clock_face.svg",
+    "<?xml version=\"1.0\" standalone=\"no\"?>\n" +
+    "<!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\"\n" +
+    "  \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">\n" +
+    "<svg\n" +
+    "   width=\"200\"\n" +
+    "   height=\"200\"\n" +
+    "   viewBox=\"0 0 200 200\"\n" +
+    "   version=\"1.1\"\n" +
+    "   xmlns=\"http://www.w3.org/2000/svg\">\n" +
+    "  <g class=\"clock-background\"></g>\n" +
+    "  <g class=\"circle-layer\"></g>\n" +
+    "  <g class=\"numbers-container\"></g>\n" +
+    "  <g class=\"numbers-container2\"></g>\n" +
+    "</svg>\n" +
+    "");
+}]);
+
+angular.module("component/templates/testTemplate.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/testTemplate.tpl.html",
+    "<div>testing</div>");
+}]);
+
+angular.module("component/templates/time.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("component/templates/time.tpl.html",
+    "<!--Selected Date Display-->\n" +
+    "<div flex=\"33\" layout=\"column\" class=\"material-time\">\n" +
+    "\n" +
+    "  <div    class=\"selected-time-display md-whiteframe-z1\"\n" +
+    "          flex=\"33\"\n" +
+    "          layout=\"column\"\n" +
+    "          layout-align=\"center center\">\n" +
+    "\n" +
+    "    <div    layout-fill\n" +
+    "            layout=\"row\"\n" +
+    "            layout-align=\"center end\">\n" +
+    "      <span class=\"time\" ng-class=\"{'active':options.showHours}\" ng-click=\"options.showHours = true\">{{options.selectedHour}}:</span>\n" +
+    "      <span class=\"time\" ng-class=\"{'active':!options.showHours}\" ng-click=\"options.showHours = false\">{{options.selectedMinute|numberFixedLen:2}}</span>\n" +
+    "      <div layout=\"column\">\n" +
+    "\n" +
+    "        <span class=\"am\" ng-class=\"{'active':isAM}\" ng-click=\"setAM(true)\">AM</span>\n" +
+    "        <span class=\"pm\" ng-class=\"{'active':!isAM}\" ng-click=\"setAM(false)\">PM</span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "\n" +
+    "  </div>\n" +
+    "  <div    class=\"circle-time-selection\"\n" +
+    "          layout-fill\n" +
+    "          flex\n" +
+    "          layout=\"column\"\n" +
+    "          layout-align=\"center center\">\n" +
+    "    <clock-face options=\"options\">\n" +
+    "    </clock-face>\n" +
+    "  </div>\n" +
+    "\n" +
+    "</div>");
+}]);

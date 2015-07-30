@@ -87,7 +87,7 @@ module.exports = function (grunt) {
         module:"component-templates"
       },
       main: {
-        src: ['app/component/templates/**/*.tpl.html'],
+        src: ['app/component/templates/**/*.{tpl.html,svg}'],
         dest: '.tmp/templates.js'
       },
     },
@@ -213,7 +213,7 @@ module.exports = function (grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      css: ['<%= yeoman.dist %>/styles/component.css'],
       options: {
         assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images', '<%= yeoman.dist %>/fonts']
       }
@@ -265,7 +265,7 @@ module.exports = function (grunt) {
         },
         dist: {
             files: {
-                '<%= yeoman.dist %>/component-min.js': ['<%= yeoman.dist %>/*.js']
+                '<%= yeoman.dist %>/itDateTimePicker.js': ['<%= yeoman.dist %>/*.js']
             },
         },
     },
@@ -336,8 +336,8 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/component-min.js': [
-            '<%= yeoman.dist %>/component-min.js'
+          '<%= yeoman.dist %>/itDateTimePicker-min.js': [
+            '<%= yeoman.dist %>/itDateTimePicker.js'
           ]
         }
       }
@@ -351,7 +351,7 @@ module.exports = function (grunt) {
       },
       dist: {
         src: ['app/component/**/*.js', '.tmp/templates.js'],
-        dest: 'dist/component-min.js'
+        dest: 'dist/itDateTimePicker.js'
       }
     },
 
