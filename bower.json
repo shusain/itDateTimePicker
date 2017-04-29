@@ -1,6 +1,7 @@
 {
   "name": "it-date-time-picker",
   "version": "0.0.1",
+  "main":"dist/itDateTimePicker.js",
   "ignore":[
     "app",
     "sublime",
